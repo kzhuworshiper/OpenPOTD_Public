@@ -1,0 +1,676 @@
+\ProvidesPackage{preamble}
+
+% Uhhhhhhhh don't look here it's a mess. I just copied and pasted chunks of my actual preamble to get this to work. 
+
+
+\def\SStitle{OpenPOTD}
+\def\SSauthor{By .19}
+
+\usepackage{amssymb,mathtools,amsthm,thmtools} 
+\usepackage[usenames,svgnames,dvipsnames,table,xcdraw]{xcolor} 
+\usepackage{tikz,pgf,pgfplots, asymptote}
+\usepackage[shortlabels]{enumitem}
+\usepackage[framemethod = tikz]{mdframed} 
+\usepackage{mathrsfs}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{xpatch}
+\usepackage{booktabs}
+\usepackage[tocindentauto]{tocstyle} 
+\usepackage[
+	pdfauthor = {\SSauthor},
+	pdftitle = {\SStitle},
+	pdftex,
+	colorlinks = true
+	]{hyperref}  
+\usepackage[
+	activate={true,nocompatibility},
+	final,
+	tracking= true,
+	kerning = true,
+	spacing = true,
+	factor = 1100,
+	stretch = 10,
+	shrink = 10
+	]{microtype} 
+\usepackage[UKenglish]{datetime}
+\usepackage[headsepline]{scrlayer-scrpage}
+\usepackage[toc,page]{appendix}
+\usepackage{bookmark}
+\usepackage[nameinlink]{cleveref} 
+\usepackage{apple_emoji}
+\usepackage[utf8]{inputenc}
+
+
+
+\definecolor{SSlavender1}{RGB}{206,209,255}
+\definecolor{SSlavender2}{RGB}{115,121,230}
+        
+    \mdfdefinestyle{SSlavendeBox}
+    {
+        linewidth = 0.5pt,
+        skipabove = 12pt,
+        innerbottommargin = 9pt,
+        skipbelow = 2pt,
+        linecolor = SSlavender2,
+        nobreak = true,
+        backgroundcolor = SSlavender1!15
+    }
+            
+    \declaretheoremstyle
+    [
+        headfont = \sffamily\bfseries\color{SSlavender2},
+        mdframed = {style = SSlavendeBox},
+        headpunct = {\\[3pt]},
+        postheadspace = {0pt}
+    ]{SSlavenderStyle}
+            
+    \declaretheorem
+    [
+        style = SSlavenderStyle,
+        name = Theorem,
+        numberwithin = section
+    ]{theorem}
+                        
+    \declaretheorem
+    [
+        style = SSlavenderStyle,
+        name = Theorem,
+        numbered = no
+    ]{theorem*}
+                        
+    \declaretheorem
+    [
+        style = SSlavenderStyle,
+        name = Lemma,
+        sibling = theorem
+    ]{lemma}
+                        
+    \declaretheorem
+    [
+        style = SSlavenderStyle,
+        name = Lemma,
+        numbered = no
+    ]{lemma*}
+                        
+    \declaretheorem
+    [
+        style = SSlavenderStyle,
+        name = Proposition,
+        sibling = theorem
+    ]{proposition}
+                        
+    \declaretheorem
+    [
+        style = SSlavenderStyle,
+        name = Proposition,
+        numbered = no
+    ]{proposition*}	
+
+    \declaretheorem
+    [
+        style = SSlavenderStyle,
+        name = Axiom,
+        sibling = theorem
+    ]{axiom}
+
+    \declaretheorem
+    [
+        style = SSlavenderStyle,
+        name = Axiom,
+        numbered = no
+    ]{axiom*}	
+
+    \declaretheorem
+    [
+        style = SSlavenderStyle,
+        name = Postulate,
+        sibling = theorem
+    ]{postulate}
+
+    \declaretheorem
+    [
+        style = SSlavenderStyle,
+        name = Postulate,
+        numbered = no
+    ]{postulate*}	
+
+
+%% Green environments: Definition, Notation
+
+\definecolor{SSgreen1}{HTML}{E3FFDB}
+\definecolor{SSgreen2}{HTML}{548047}
+
+    \mdfdefinestyle{SSgreenBox}
+    {
+        skipabove = 8pt,
+        linewidth = 0.5pt,	
+        rightline = true,
+        leftline = true,
+        topline = true,
+        bottomline = true,
+        linecolor = SSgreen2,
+        backgroundcolor = SSgreen1!15
+    }
+            
+    \declaretheoremstyle
+    [
+        headfont = \bfseries\sffamily\color{SSgreen2},
+        bodyfont = \normalfont\small,
+        spaceabove = 0pt,
+        spacebelow = 0pt,
+        headpunct = {\\[3pt]},
+        mdframed = {style = SSgreenBox}
+    ]{SSgreenStyle}
+            
+    \declaretheorem
+    [
+        style = SSgreenStyle,
+        name = Definition,
+        numberwithin = section
+    ]{definition}
+
+    \declaretheorem
+        [
+            style = SSgreenStyle,
+            name = Definition,
+            numbered = no
+        ]{definition*}	
+
+        \declaretheorem
+        [
+            style = SSgreenStyle,
+            name = Notation,
+            numberwithin = section
+        ]{notation}
+
+    \declaretheorem
+        [
+            style = SSgreenStyle,
+            name = Notation,
+            numbered = no
+        ]{notation*}	
+
+%% Blue environments: Example			
+
+\definecolor{SSblue1}{HTML}{84C2FF}
+\definecolor{SSblue2}{HTML}{4998E6}
+        
+    \mdfdefinestyle{SSblueBox}
+    {
+        linewidth = 0.5pt,
+        skipabove = 12pt,
+        frametitleaboveskip = 5pt,
+        frametitlebelowskip = 0pt,
+        skipbelow = 2pt,
+        frametitlefont = \bfseries,
+        innertopmargin = 4pt,
+        innerbottommargin = 8pt,
+        nobreak = true,
+        backgroundcolor = SSblue1!5,
+        linecolor = SSblue2
+    }
+            
+    \declaretheoremstyle
+    [
+        headfont = \bfseries\sffamily\color{SSblue2},
+        bodyfont = \normalfont,
+        spaceabove = 2pt,
+        spacebelow = 1pt,
+        mdframed = {style = SSblueBox},
+        headpunct = {\\[3pt]}
+    ]{SSblueStyle}	
+            
+    \declaretheorem
+    [
+        style = SSblueStyle,
+        name = Example,
+        sibling = theorem
+    ]{example}
+            
+    \declaretheorem
+    [
+        style = SSblueStyle,
+        name = Example,
+        numbered = no
+    ]{example*}
+    
+%% Peach environments: Corollary, Claim
+
+\definecolor{SSpeach1}{HTML}{FFEDE3}
+\definecolor{SSpeach2}{HTML}{FFA97A}
+        
+    \mdfdefinestyle{SSpeachBox}
+    {
+        frametitleaboveskip = 5pt,
+        frametitlebelowskip = 0pt,
+        frametitlefont = \bfseries
+        skipabove = 12pt,
+        skipbelow = 2pt,
+        linewidth = 2pt,
+        rightline = false,
+        leftline = true,
+        topline = false,
+        bottomline = false,
+        linecolor = SSpeach2,
+        innertopmargin = 4pt,
+        innerbottommargin = 8pt,
+        nobreak = true,
+        backgroundcolor = SSpeach1!35
+    }
+                
+    \declaretheoremstyle
+    [		
+        headfont = \bfseries\sffamily\color{SSpeach2},
+        bodyfont = \normalfont,
+        spaceabove = 2pt,
+        spacebelow = 1pt,
+        mdframed = {style = SSpeachBox},
+        headpunct = {\\[3pt]}
+    ]{SSpeachStyle}
+            
+    \declaretheorem
+    [	
+        style = SSpeachStyle,
+        name = Corollary,
+        sibling = theorem
+    ]{corollary}
+                            
+    \declaretheorem
+    [
+        style = SSpeachStyle,
+        name = Corollary,
+        numbered = no
+    ]{corollary*}
+                            
+    \declaretheorem
+    [	
+        style = SSpeachStyle,
+        name = Claim,
+        sibling = theorem
+    ]{claim}
+                            
+    \declaretheorem
+    [
+        style = SSpeachStyle,
+        name = Claim,
+        numbered = no
+    ]{claim*}
+            
+
+%% Black environemnt: Remark 
+
+\mdfdefinestyle{SSblackBox}
+{
+    frametitleaboveskip = 5pt,
+    frametitlebelowskip = 0pt,
+    frametitlefont = \bfseries
+    skipabove = 12pt,
+    skipbelow = 2pt,
+    linewidth = 2pt,
+    rightline = false,
+    leftline = false,
+    topline = false,
+    bottomline = false,
+    linecolor = black,
+    innertopmargin = 4pt,
+    innerbottommargin = 8pt,
+    nobreak = true,
+    %backgroundcolor = RedViolet!5!gray!5
+}
+
+\declaretheoremstyle
+[
+    headfont = \bfseries\sffamily,
+    bodyfont = \normalfont\small,
+    spaceabove = 0pt,
+    spacebelow = 0pt,
+    headpunct = {\\[3pt]},
+    mdframed = {style = SSblackBox}
+]{SSblackStyle}
+        
+\declaretheorem
+[
+    style = SSblackStyle,
+    name = Remark,
+    numbered = no
+]{remark}
+        
+\declaretheorem
+[
+    style = SSblackStyle,
+    name = Remark,
+    numbered = no
+]{remark*}
+
+\declaretheorem
+[
+    style = SSblackStyle,
+    name = Note,
+    sibling = theorem
+]{note}
+        
+\declaretheorem
+[
+    style = SSblackStyle,
+    name = Note,
+    numbered = no
+]{note*}
+
+%% Inquiry environments: Exercise, Problem, Question
+
+\mdfdefinestyle{SSinquiryBox}
+{ 
+    linewidth = 0.5pt,
+    skipabove = 12pt,
+    frametitleaboveskip = 5pt,
+    frametitlebelowskip = 0pt,
+    skipbelow = 2pt,
+    frametitlefont = \bfseries,
+    innertopmargin = 8pt,
+    innerbottommargin = 8pt,
+    nobreak = true,
+    backgroundcolor = RedViolet!7!gray!7,
+    linecolor = Black
+}
+            
+\declaretheoremstyle
+[
+    headfont = \bfseries\sffamily,
+    bodyfont = \normalfont,
+    spaceabove = 2pt,
+    spacebelow = 2pt,
+    mdframed = {style = SSinquiryBox},
+    headpunct = {.}
+]{SSinquiryStyle}	
+
+\declaretheorem
+[		
+    style = SSinquiryStyle,
+    name = Exercise,
+    sibling = theorem
+]{exercise}	
+        
+\declaretheorem
+[		
+    style = SSinquiryStyle,
+    name = Question,
+    sibling = theorem
+]{question}	
+                
+\declaretheorem
+[
+    style = SSinquiryStyle,
+    name = Problem,
+    sibling = theorem
+]{problem}	
+
+\declaretheorem
+[		
+    style = SSinquiryStyle,
+    name = Exercise,
+    numbered = no
+]{exercise*}	
+        
+\declaretheorem
+[		
+    style = SSinquiryStyle,
+    name = Question,
+    numbered = no
+]{question*}	
+                
+\declaretheorem
+[
+    style = SSinquiryStyle,
+    name = Problem,
+    numbered = no
+]{problem*}
+
+
+%% P-set environments: 
+
+\newenvironment{SSpsetQbox}
+{
+    \enumerate
+    [
+        align = left,
+        leftmargin = 5pt,
+        label = \bfseries\sffamily{Question} \thesection.\arabic*,
+        before = \setcounter{enumi}{\value{theorem}},
+        after = \setcounter{theorem}{\value{enumi}}
+    ]
+}{\endenumerate}
+
+\newcommand{\SSpsetQ}[1]
+{
+    \begin{mdframed}
+        [
+            style = SSinquiryBox,
+            innertopmargin = 10pt,
+            innerbottommargin = 10pt
+        ]
+        \begin{SSpsetQbox}#1\end{SSpsetQbox}
+    \end{mdframed}
+}
+
+\newenvironment{SSpsetEbox}
+{
+    \enumerate
+    [
+        align = left,
+        leftmargin = 5pt,
+        label = \bfseries\sffamily{Exercise} \thesection.\arabic*,
+        before = \setcounter{enumi}{\value{theorem}},
+        after = \setcounter{theorem}{\value{enumi}}
+    ]
+}{\endenumerate}
+
+\newcommand{\SSpsetE}[1]
+{
+    \begin{mdframed}
+        [
+            style = SSinquiryBox,
+            innertopmargin = 10pt,
+            innerbottommargin = 10pt
+        ]
+        \begin{SSpsetEbox}#1\end{SSpsetEbox}
+    \end{mdframed}
+}
+
+\newenvironment{SSpsetPbox}
+{	
+    \enumerate
+    [
+        align = left,
+        leftmargin = 5pt,
+        label = \bfseries\sffamily{Problem} \thesection.\arabic*,
+        before = \setcounter{enumi}{\value{theorem}},
+        after = \setcounter{theorem}{\value{enumi}}
+    ]
+}{\endenumerate}
+
+\newcommand{\SSpsetP}[1]
+{
+    \begin{mdframed}
+        [
+            style = SSinquiryBox,
+            innertopmargin = 10pt,
+            innerbottommargin = 10pt
+        ]
+        \begin{SSpsetPbox}#1\end{SSpsetPbox}
+    \end{mdframed}
+}
+
+%% Blue-Green environment: Formal Proof
+
+\definecolor{SSbluegreen1}{HTML}{F4F9F7}
+\definecolor{SSbluegreen2}{HTML}{00A8A7}
+
+    \mdfdefinestyle{SSformalBox}
+    {
+        skipabove = 8pt,
+        linewidth = 2pt,	
+        rightline = false,
+        leftline = true,
+        topline = false,
+        bottomline = false,
+        linecolor = SSbluegreen2,
+        backgroundcolor = SSbluegreen1
+    }
+                
+    \declaretheoremstyle
+    [
+        headfont = \bfseries\sffamily\color{SSbluegreen2},
+        bodyfont = \normalfont,
+        spaceabove = 2pt,
+        spacebelow = 0pt,
+        mdframed = {style = SSformalBox},
+        headpunct = {\\[3pt]}
+    ]{SSformalStyle}	
+
+    \declaretheorem
+    [
+        style = SSformalStyle,
+        qed = \qedsymbol,
+        name = Formal Proof,
+        numbered = no
+    ]{SSformal}
+
+
+%% Empty environmnets: Blue-Green, Black
+
+\newcommand{\SSgt}[1]{\noindent\bfseries\sffamily\color{SSbluegreen2}{#1}\\[3pt]}
+\newcommand{\SSgc}[1]{\noindent\mdseries\sffamily\color{black}{#1}\\[3pt]}
+
+%% Other document colours: Section Marks, Links
+
+\renewcommand*{\sectionformat}{\color{RubineRed}\S\thesection\enskip}
+    \renewcommand*{\subsectionformat}{\color{RubineRed}\S\thesubsection\enskip}
+    \renewcommand*{\subsubsectionformat}{\color{RubineRed}\S\thesubsubsection\enskip}	
+
+    \hypersetup
+    {
+        urlcolor = RubineRed,
+        linkcolor = RubineRed
+    }			
+
+\newcommand{\hrulebar}{
+	\par\hspace{\fill}\rule{0.95\linewidth}{.7pt}\hspace{\fill}
+	\par\nointerlineskip \vspace{\baselineskip}
+	}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\newcommand{\SSbreak}{\noindent\rule[0.5ex]{\linewidth}{1pt}}
+
+\newenvironment{subproof}[1][Proof]{
+	\begin{proof}[#1]\renewcommand{\qedsymbol}{$\blacksquare$}}%
+	{\end{proof}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}	
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+
+\newcommand{\SSmax}[1]{\text{max}\{#1\}}
+\newcommand{\SSmin}[1]{\text{min}\{#1\}}
+
+\newcommand{\Lim}[1]{\displaystyle{\lim_{#1}}}
+
+\renewcommand{\epsilon}{\ensuremath{\varepsilon}}
+\renewcommand{\emptyset}{\ensuremath{\varnothing}}
+\renewcommand{\phi}{\ensuremath{\varphi}}
+
+\newcommand{\SSbf}{\textbf}
+\newcommand{\SSet}[1]{\{{#1}\}}
+\newcommand{\SSeq}{\subseteq}
+\newcommand{\SSS}{\subset}
+\newcommand{\SScomp}[2]{#1\backslash #2}
+\newcommand{\SSsup}[1]{\text{sup}(#1)}
+\newcommand{\SSinf}[1]{\text{inf}(#1)}
+\newcommand{\SSseg}[1]{\overline{#1}}
+
+
+\author{\SSauthor}
+\title{\SStitle}
+\subtitle{\SSsubtitle}
+\publishers{\SSpublishers}
+
+\setlength{\voffset}{-0.25in}
+\setlength{\footskip}{0.5in}
+\addtolength{\textheight}{2in}
+\setlength{\headsep}{10pt}
+\renewcommand{\headfont}{}
+\ihead{\footnotesize{\bfseries\sffamily{\SSauthor} \sffamily\mdseries{(\today)}}}
+\automark{section}
+\chead{}
+\ohead{\footnotesize\bfseries\sffamily{\SStitle}}
+\cfoot{\pagemark}
+\KOMAoptions{numbers = noenddot}
+\usetocstyle{KOMAlike}
+\addtokomafont{subtitle}{\Large}
+\setkomafont{author}{\Large}
+\setkomafont{date}{\Large\normalsize}
+\setkomafont{publishers}{\small}
+
+\setcounter{section}{-1}
+\setcounter{tocdepth}{2}
+
+\addtolength{\textwidth}{1.25in}
+	\setlength{\hoffset}{-0.625in}
+
+\makeatother
+
+\newcommand{\SSbegintoc}{\tableofcontents}
+
+ \def\SSfp
+    {
+      \begin{titlepage}
+        \thispagestyle{empty}
+        
+        \begin{center}
+        
+          {\Huge\bfseries\sffamily\SStitle\par}
+
+        \end{center}
+
+        \vspace{2cm}
+
+        \microtypesetup{protrusion = false} 
+          \SSbegintoc
+        \microtypesetup{protrusion = true} 
+
+        \vspace*{\fill} 
+
+          \begin{minipage}{0.55\textwidth}
+            \small{\textit{\SSauthor}}\hfil
+          \end{minipage}
+          \hfil
+          \begin{minipage}[t]{0.45\textwidth}
+            \begin{flushleft}
+              \textit{Last updated: \today}\\
+              \href{https://github.com/sj-bs/OpenPOTD_Public}{Github/sj-bs/OpenPOTD\_Public}
+            \end{flushleft}
+          \end{minipage}
+      \end{titlepage}
+    }
+
+\makeatletter
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother 
+
+\renewcommand*{\sectionformat}{\color{Black}\S\thesection\enskip}
+\renewcommand*{\subsectionformat}{\color{Black}\S\thesubsection\enskip}
+\renewcommand*{\subsubsectionformat}{\color{Black}\S\thesubsubsection\enskip}	
+
+\setlength{\parindent}{0pt}
+\setcounter{section}{0}
+\setcounter{tocdepth}{3}
+\ihead{}
+

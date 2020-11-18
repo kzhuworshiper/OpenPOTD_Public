@@ -1,0 +1,183 @@
+\documentclass[titlepage=true]{scrartcl}
+
+\usepackage{preamble}
+
+\def\Ptony{Tony Wang\#1729 (541318134699786272)}
+\def\Pbrain{brainysmurfs\#2860 (281300961312374785)}
+\def\Pss{.19\#9839 (434767660182405131)}
+\def\Ppi{Charge\#3766(481250375786037258)}
+\def\Pbfan{bfan05\#5219 (692851547062665317)}
+\def\Paiya{AiYa\#2278 (675537018868072458)}
+
+\begin{document}
+\SSfp
+
+This is a temporary document to let people who have alternative solutions contribute to the end of season write up.
+Solutions have already been written up for the entire season, and where possible I have tried to include the officially provided solution, adapted them if the problem statement is changed, and filled in the gaps as best I could.
+In many circumstances problems for this season have not come with official write-ups and thus have required me to provide my own - in which case I apologise for any mistakes (or fakesolves!) in advance.
+If any mistakes are found, feel free to DM me \(.19\#9839\) or submit a push.
+Similarly, if you would like to contribute an alternate solution to whatever is in this document, again, feel free to submit a push or just DM me a solution and I can type it up.
+\medskip
+ 
+At the end of each day I'll add the question and solution to the document - the end of each day naturally being such that the question and solution being added is no longer an active one.\bigskip
+
+Thank you to:\medskip
+
+\Paiya\medskip
+
+For contributing to solutions! 
+
+\newpage
+    
+\section{A Sequence of 5's}
+
+    \SSbreak\\
+    \emph{Source: United Kingdom - Maclaurin, 2015 M1}\\
+    \emph{Proposer: .19\#9839 (434767660182405131)}\\
+    \emph{Problem ID: 47}\\
+    \emph{Date: 2020-11-16}\\
+    \SSbreak
+        
+    \SSpsetQ{
+        Consider the sequence \(5,\ 55,\ 555,\ 5555,\ldots\)\medskip
+
+        How many digits does the smallest number in the sequence have which is divisible by 495?
+    }\bigskip
+
+    \begin{solution}\hfil\medskip
+
+        We require the term to be divisible by \(5\cdot9\cdot 11\).
+		Hence we need only consider the sequence \(1,\ 11,\ 111\,\ldots\) with respect to \(9\cdot11\).
+		Clearly for odd numbered terms in the sequence, 11 does not divide into it, by the well-known divisibility rule for 11.
+		Therefore, we require an even numbered term in the sequence, which is divisible by 9.
+		We know 9 divides a number iff its digital sum is also divisible by 9.
+		Hence, the smallest such will be the 18th term in the sequence, which will naturally have \fbox{18} digits. 
+    \end{solution}\bigskip
+
+
+    \begin{solution}[Write up by \Paiya]\hfil\medskip
+        
+        Each of these numbers can be written as \(5\cdot1\ldots1,\)whee there are \(n\) total ones.
+		This can be rewritten as \(5\cdot(10^{n-1}+10^{n-2}+\cdots+10^0)=\frac{5}{9}(10^n-1)\).
+		Note that \(495=9\cdot11\cdot5\) so we want \(9|\frac{10^n-1}{9}\) and \(10^n\equiv1\mod{11}\).
+		From the congruence \(\mod{11}\) we see that \(n\) must be even.
+		Note that \(10^n-1=9\ldots9\), where there are \(n\) total nines; if \(n\) is a multiple of 9 then \(\frac{10^n-1}{9}=1\ldots1\) where there are \(n\) total ones; this is a multiple of 9.
+		Since \(n\) must be even, the smallest such \(n\) is \fbox{18}.
+    \end{solution}
+
+\newpage
+
+\section{Brainy's Happy Set}
+
+    \SSbreak\\
+    \emph{Source: British Mathematical Olympiad - Round 1, 2010/2011 P1}\\
+    \emph{Proposer: .19\#9839 (434767660182405131)}\\
+    \emph{Problem ID: 40}\\
+    \emph{Date: 2020-11-17}\\
+    \SSbreak
+        
+    \SSpsetQ{
+        Brainy has a set of integers, from 1 to \(n\), which he likes to play with.
+		Tony Wang, upon seeing the happiness that this set of integers brings Brainy, decides to steal one of the numbers in it.
+		Suppose the average number of the remaining elements in the set is \(\frac{163}{4}\).
+		What is the sum of the elements in Brainy's set multiplied by the element that Tony stole?
+                
+        \begin{center}
+            \emph{(A four-function calculator may be used)}
+        \end{center}
+    }\bigskip
+   
+    \begin{solution}\hfil\medskip 
+   
+        We can set up the problem statement as 
+        \begin{equation*}
+            \frac{\frac{n}{2}(n+1)-x}{n-1}=\frac{163}{4}
+        \end{equation*}
+                
+         Where \(x\) is the number Tony has stolen.
+	 This simplifies to \(4x=2n^2-161n+163\).
+	 Since \(x\) must be a number within the set \(\{1,2,\ldots,n-1,n\}\), we have that \(1\leq x\leq n\Rightarrow 4\leq 2n^2-161n+163\leq4n\).
+	 By considering the lower bound, we get $(2n-159)(n-1)\geq 0$.
+	 This means that \(n\leq 1\Rightarrow n=1\), or \(n\geq \frac{159}{2}\Rightarrow n\geq 80\).
+	 By similar methodology when considering the upper bound, we get \(1\leq n\leq 81\).
+	 Thus \(n\in\{1,80,81\}\).
+	 Clearly, \(n\ne 1\), so either \(n=80\) or \(n=81\).
+	 Notice that if \(n\) is even, then for \(4x=2n^2-161n+163\) the parity of he RHS is Odd, while the LHS is even, thus a contradiction occurs.
+	 This means that \(n=81\) and so \(x=61\). Thus the answer is \(\frac{81(82)}{2}\cdot61=\fbox{202581}\).
+    \end{solution}\bigskip
+  
+    \begin{solution}[Write up by \Paiya]\hfil\medskip
+        
+        Suppose Tony stole the integer \(k\).
+		Then, the sum of Brainy's remaining \(n-1\) elements is \(\frac{n(n+1)}{2}-k\) for an average of 
+        
+        \begin{equation*}
+            \frac{\frac{n(n+1)}{2}-k}{n-1}=\frac{163}{4}
+        \end{equation*}
+
+        Rearrange and solve for \(k\) to get \(4k=2n^2=161n+163\).
+		Taking this \(\mod{4}\), we get \(2n^2-n-1\equiv0\mod{4}\) so \(n\equiv1\mod{4}\).
+		Since \(k\) is natural, we have \(2n^2-161n+163>0\iff n>\frac{161+\sqrt{161^2-8\cdot163}}{4}=79.4\) and \(n=81\) gives us \(k=61\). 
+		So the answer is \(\fbox{202581}\).
+
+        \begin{remark}
+            81 is the unique solution. We must have \(k\geq n\) so \(2n^2-161n+163\geq 4n\iff n\geq 81.5\)
+        \end{remark}
+    \end{solution}\bigskip
+
+\newpage
+
+\section{MODSbot's Escape!}
+
+    \SSbreak\\
+    \emph{Source: Mathematics Admissions Test, 2012 Q5}\\
+    \emph{Proposer: .19\#9839 (434767660182405131)}\\
+    \emph{Problem ID: 48}\\
+    \emph{Date: 2020-11-18}\\
+    \SSbreak
+
+    \SSpsetQ{
+        In his evil mechatronics laboratory, Brainy has built a physical manifestation of MODSbot.
+		MODSbot's movement is defined by three inputs: \textbf{F} to move forward a unit distance, \textbf{L} to turn left \(90^{\circ}\), and \textbf{R} to turn right \(90^{\circ}\).
+
+        We define a program to be a sequence of commands.
+		The program \(P_{n+1}\) (for \(n\geq 0\)) involves performing \(P_n\), turning left, performing \(P_n\) again, then turning right:\medskip
+
+        \[P_{n+1}=P_n\textbf{L}P_n\textbf{R},\ P_0=\textbf{F}\]\medskip
+
+        Unbeknownst to Brainy, MODSbot, though limited in movement, is sentient and realises Brainy is just a small asian Frankenstein, whose intentions for them were nefarious and non-consensual.
+		As a result, after Brainy goes home for the day, MODSbot makes its escape from Brainy's laboratory.\medskip
+
+        Let \((x_n,y_n)\) be the position of the robot after performing the program \(P_n\), so \((x_0,y_0)=(1,0)\) and \((x_1,y_1)=(1,1)\), etc.\medskip
+   
+        How far away from the place Brainy left it does MODSbot make it after performing\(P_{24}\)?
+    }\bigskip
+
+
+    \begin{solution}\hfil\medskip
+            
+        Note first that after each iteration of $P_n$ MODSbot faces in the positive $x$ direction, as each $P_n$ contains as many \textbf{L}s as it does \textbf{R}s.
+		Now, assuming MODSbot is at $(x_n,y_n)$ after having performed $P_n$, we see the next iteration of $P$ puts MODSbot at $(x_n-y_n,x_n+y_n)$.
+		Note then that:
+            
+            \begin{align*}
+                (x_{n+2},y_{n+2}) &= (x_{n+1}-y_{n+1},x_{n+1}+y_{n+1}) = (-2y_n,2x_n)\\
+                (x_{n+4},y_{n+4}) &= (-2y_{n+2},2x_{n+2})  = (-4x_n,-4y_n)\\
+                (x_{n+8},y_{n+8}) &= (-4x_{n+4},4y_{n+4})  = (16x_n,16y_n)
+            \end{align*}
+        
+        Thus, we see that $(x_{8k},y_{8k}) = (16^k,0)$, and therefore that $\abs{P_{24}} = \fbox{4096}$
+    \end{solution}\bigskip
+
+    \begin{solution}[Write up by \Paiya]\hfil\medskip
+        
+        Observe that each program has the same amount of left and right turns, so MODSbot will always be facing the positive x-direction after each program.
+		This means that \(\textbf{L}P_n\) is just the program \(P_n\) performed at a 90-degree counterclock-wise rotation.
+		For instance \(P_1\) moves MODSbot right 1 and up 1, so \(textbf{L}P_1\) moves MODSbot up 1 and left 1 (right gets rotated 90 counterclockwise to up and up to left).
+		This motivates us to work in the complex plane; let \(P_n\) be the complex-number representing MODSBOT's displacement after following \(P_n\).
+		Then \(\textbf{L}P_n=iP_n\), so \(P_{n+1}=P_n+\textbf{L}P_n=(1+i)P_n=\sqrt{2}e^{\frac{\pi i}{4}}P_n\).
+		WIth \(P_0-1\) we get \(P_n=2^{\frac{n}{2}}e^\frac{\pi i n}{4}\). 
+		So \(|P_{24}=\fbox{4096}\)
+    \end{solution}\bigskip
+
+\end{document} 

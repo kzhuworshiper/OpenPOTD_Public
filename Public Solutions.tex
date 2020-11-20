@@ -178,7 +178,7 @@ For contributing to solutions!
 		For instance \(P_1\) moves MODSbot right 1 and up 1, so \(\textbf{L}P_1\) moves MODSbot up 1 and left 1 (right gets rotated 90 counterclockwise to up and up to left).
 		This motivates us to work in the complex plane; let \(P_n\) be the complex-number representing MODSBOT's displacement after following \(P_n\).
 		Then \(\textbf{L}P_n=iP_n\), so \(P_{n+1}=P_n+\textbf{L}P_n=(1+i)P_n=\sqrt{2}e^{\frac{\pi i}{4}}P_n\).
-		WIth \(P_0-1\) we get \(P_n=2^{\frac{n}{2}}e^\frac{\pi i n}{4}\). 
+		WIth \(P_0=1\) we get \(P_n=2^{\frac{n}{2}}e^\frac{\pi i n}{4}\). 
 		So \(|P_{24}=\fbox{4096}\)
     \end{solution}\bigskip
 \newpage
@@ -246,7 +246,7 @@ For contributing to solutions!
     
     \begin{solution}[Write up by \Paiya]\hfil\medskip
     
-      Let $d_k$ represent the diagonal from a point to the kth vertex adjacent to it.     For example, $d_1$ is a side of the polygon, $d_2$ is $\overline{AC}, d_3$ is $\overline{AD}$ and note that $d_k = d_{n - k}$ where n is the number of sides of the polygon. Reassign $D$ to be the vertex three vertices away from $A$ but on the opposite side of $B$ and $C;$ in other words, reflect $D$ over $\overline{OA}.$ Then, $AB = BC = d_1, AC = d_2, AD = d_3, BD = d_4,$ and $CD = d_5.$ By Ptolemy's Theorem, we get $$AB \cdot CD + BC \cdot AD = AC \cdot BD \iff d_1\left(d_5 + d_3\right) = d_2d_4.$$ Rearrange our given equation to get $$\dfrac{1}{d_1} = \dfrac{1}{d_2} + \dfrac{1}{d_3} \iff d_1\left(d_2 + d_3\right) = d_2d_3.$$ For both of these equations to be true, we can have $d_5 + d_3 = d_2 + d_3 \iff d_5 = d_2$ and $d_3 = d_4;$ this is true if n = \boxed{7}.
+      Let $d_k$ represent the diagonal from a point to the kth vertex adjacent to it.     For example, $d_1$ is a side of the polygon, $d_2$ is $\overline{AC}, d_3$ is $\overline{AD}$ and note that $d_k = d_{n - k}$ where n is the number of sides of the polygon. Reassign $D$ to be the vertex three vertices away from $A$ but on the opposite side of $B$ and $C;$ in other words, reflect $D$ over $\overline{OA}.$ Then, $AB = BC = d_1, AC = d_2, AD = d_3, BD = d_4,$ and $CD = d_5.$ By Ptolemy's Theorem, we get $$AB \cdot CD + BC \cdot AD = AC \cdot BD \iff d_1\left(d_5 + d_3\right) = d_2d_4.$$ Rearrange our given equation to get $$\dfrac{1}{d_1} = \dfrac{1}{d_2} + \dfrac{1}{d_3} \iff d_1\left(d_2 + d_3\right) = d_2d_3.$$ For both of these equations to be true, we can have $d_5 + d_3 = d_2 + d_3 \iff d_5 = d_2$ and $d_3 = d_4;$ this is true if \(n = \boxed{7}\).
     \end{solution}
 
 \end{document} 

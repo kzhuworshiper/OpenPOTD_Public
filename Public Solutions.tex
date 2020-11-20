@@ -106,25 +106,26 @@ For contributing to solutions!
 	 Notice that if \(n\) is even, then for \(4x=2n^2-161n+163\) the parity of he RHS is Odd, while the LHS is even, thus a contradiction occurs.
 	 This means that \(n=81\) and so \(x=61\). Thus the answer is \(\frac{81(82)}{2}\cdot61=\fbox{202581}\).
     \end{solution}\bigskip
-  
-    \begin{solution}[Write up by \Paiya]\hfil\medskip
-        
-        Suppose Tony stole the integer \(k\).
-		Then, the sum of Brainy's remaining \(n-1\) elements is \(\frac{n(n+1)}{2}-k\) for an average of 
-        
-        \begin{equation*}
-            \frac{\frac{n(n+1)}{2}-k}{n-1}=\frac{163}{4}
-        \end{equation*}
 
-        Rearrange and solve for \(k\) to get \(4k=2n^2=161n+163\).
-		Taking this \(\mod{4}\), we get \(2n^2-n-1\equiv0\mod{4}\) so \(n\equiv1\mod{4}\).
-		Since \(k\) is natural, we have \(2n^2-161n+163>0\iff n>\frac{161+\sqrt{161^2-8\cdot163}}{4}=79.4\) and \(n=81\) gives us \(k=61\). 
-		So the answer is \(\fbox{202581}\).
-
-        \begin{remark}
-            81 is the unique solution. We must have \(k\geq n\) so \(2n^2-161n+163\geq 4n\iff n\geq 81.5\)
-        \end{remark}
-    \end{solution}\bigskip
+%    This solution's pretty much redundant
+%    \begin{solution}[Write up by \Paiya]\hfil\medskip
+%        
+%        Suppose Tony stole the integer \(k\).
+%		Then, the sum of Brainy's remaining \(n-1\) elements is \(\frac{n(n+1)}{2}-k\) for an average of 
+%        
+%        \begin{equation*}
+%            \frac{\frac{n(n+1)}{2}-k}{n-1}=\frac{163}{4}
+%        \end{equation*}
+%
+%        Rearrange and solve for \(k\) to get \(4k=2n^2=161n+163\).
+%		Taking this \(\mod{4}\), we get \(2n^2-n-1\equiv0\mod{4}\) so \(n\equiv1\mod{4}\).
+%		Since \(k\) is natural, we have \(2n^2-161n+163>0\iff n>\frac{161+\sqrt{161^2-8\cdot163}}{4}=79.4\) and \(n=81\) gives us \(k=61\). 
+%		So the answer is \(\fbox{202581}\).
+%
+%        \begin{remark}
+%            81 is the unique solution. We must have \(k\geq n\) so \(2n^2-161n+163\geq 4n\iff n\geq 81.5\)
+%        \end{remark}
+%    \end{solution}\bigskip
 
 \newpage
 
@@ -241,6 +242,11 @@ For contributing to solutions!
             \end{tikzpicture}}
             \caption*{A regular $n$-gon}
         \end{figure}
+    \end{solution}
+    
+    \begin{solution}[Write up by \Paiya]\hfil\medskip
+    
+      Let $d_k$ represent the diagonal from a point to the kth vertex adjacent to it.     For example, $d_1$ is a side of the polygon, $d_2$ is $\overline{AC}, d_3$ is $\overline{AD}$ and note that $d_k = d_{n - k}$ where n is the number of sides of the polygon. Reassign $D$ to be the vertex three vertices away from $A$ but on the opposite side of $B$ and $C;$ in other words, reflect $D$ over $\overline{OA}.$ Then, $AB = BC = d_1, AC = d_2, AD = d_3, BD = d_4,$ and $CD = d_5.$ By Ptolemy's Theorem, we get $$AB \cdot CD + BC \cdot AD = AC \cdot BD \iff d_1\left(d_5 + d_3\right) = d_2d_4.$$ Rearrange our given equation to get $$\dfrac{1}{d_1} = \dfrac{1}{d_2} + \dfrac{1}{d_3} \iff d_1\left(d_2 + d_3\right) = d_2d_3.$$ For both of these equations to be true, we can have $d_5 + d_3 = d_2 + d_3 \iff d_5 = d_2$ and $d_3 = d_4;$ this is true if n = \boxed{7}.
     \end{solution}
 
 \end{document} 

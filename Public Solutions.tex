@@ -172,9 +172,9 @@ For contributing to solutions!
 
     \begin{solution}[Write up by \Paiya]\hfil\medskip
         
-        Observe that each program has the same amount of left and right turns, so MODSbot will always be facing the positive x-direction after each program.
+        Observe that each program has the same amount of left and right turns, so MODSbot will always be facing the positive \(x\)-direction after each program.
 		This means that \(\textbf{L}P_n\) is just the program \(P_n\) performed at a 90-degree counterclock-wise rotation.
-		For instance \(P_1\) moves MODSbot right 1 and up 1, so \(textbf{L}P_1\) moves MODSbot up 1 and left 1 (right gets rotated 90 counterclockwise to up and up to left).
+		For instance \(P_1\) moves MODSbot right 1 and up 1, so \(\textbf{L}P_1\) moves MODSbot up 1 and left 1 (right gets rotated 90 counterclockwise to up and up to left).
 		This motivates us to work in the complex plane; let \(P_n\) be the complex-number representing MODSBOT's displacement after following \(P_n\).
 		Then \(\textbf{L}P_n=iP_n\), so \(P_{n+1}=P_n+\textbf{L}P_n=(1+i)P_n=\sqrt{2}e^{\frac{\pi i}{4}}P_n\).
 		WIth \(P_0-1\) we get \(P_n=2^{\frac{n}{2}}e^\frac{\pi i n}{4}\). 
@@ -239,7 +239,7 @@ For contributing to solutions!
             \draw[color=black] (3.4971074706224496,-3.394467750526703) node {$M$};
             \end{scriptsize}
             \end{tikzpicture}}
-            \caption{A regular $n$-gon}
+            \caption*{A regular $n$-gon}
         \end{figure}
     \end{solution}
 

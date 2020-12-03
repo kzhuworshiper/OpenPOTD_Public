@@ -1,6 +1,6 @@
 \ProvidesPackage{preamble}
  
-\def\SStitle{OpenPOTD}
+\def\SStitle{Questions \& Solutions}
 \def\SSauthor{.19}
 \def\SSauthorr{Brainy}
 \def\SSauthorrr{Yuchan}
@@ -37,8 +37,8 @@
 \usepackage[toc,page]{appendix}
 \usepackage{bookmark}
 \usepackage[nameinlink]{cleveref} 
-%\usepackage{apple_emoji}
 \usepackage[utf8]{inputenc}
+\usepackage{rotating}
 
 \mdfdefinestyle{SSinquiryBox}
 { 
@@ -126,7 +126,6 @@
 \newcommand{\SSinf}[1]{\text{inf}(#1)}
 \newcommand{\SSseg}[1]{\overline{#1}}
 
-
 \author{\SSauthor}
 \title{\SStitle}
 \subtitle{\SSsubtitle}
@@ -137,18 +136,14 @@
 \addtolength{\textheight}{2in}
 \setlength{\headsep}{10pt}
 \renewcommand{\headfont}{}
-\ihead{\footnotesize{\bfseries\sffamily{\SSauthor} \sffamily\mdseries{(\today)}}}
-\automark{section}
-\chead{}
 \ohead{\footnotesize\bfseries\sffamily{\SStitle}}
-\cfoot{\pagemark}
+\cfoot{\thepage}
 \KOMAoptions{numbers = noenddot}
 \usetocstyle{KOMAlike}
 \addtokomafont{subtitle}{\Large}
 \setkomafont{author}{\Large}
 \setkomafont{date}{\Large\normalsize}
 \setkomafont{publishers}{\small}
-
 \setcounter{section}{-1}
 \setcounter{tocdepth}{2}
 
@@ -159,38 +154,44 @@
 
 \newcommand{\SSbegintoc}{\tableofcontents}
 
- \def\SSfp
-    {
-      \begin{titlepage}
-        \thispagestyle{empty}
-        
-        \begin{center}
-        
-          {\Huge\bfseries\sffamily\SStitle\par}
+\def\SSfp
+{ 
+\pagenumbering{roman}
+  \begin{titlepage}
+  \thispagestyle{empty}
+    
+    \begin{center}
+    
+      {\Huge\bfseries\sffamily\SStitle\par}
 
-        \end{center}
+    \end{center}
 
-        \vspace{2cm}
+    \vspace{2cm}
 
-        \microtypesetup{protrusion = false} 
-          \SSbegintoc
-        \microtypesetup{protrusion = true} 
+    \begin{figure}[h!]
+      \centering
+      \includegraphics{Sections/Windmill}
+  \end{figure}
 
-        \vspace*{\fill} 
+    \vspace*{\fill} 
 
-          \begin{minipage}{0.55\textwidth}
-            \small{\textit{By \SSauthor, \SSauthorr, \& \SSauthorrr}}\hfil
-          \end{minipage}
-          \hfil
-          \begin{minipage}[t]{0.45\textwidth}
-            \begin{flushleft}
-              \textit{Last updated: \today}\\
-              \href{https://github.com/sj-bs/OpenPOTD_Public}{Github/sj-bs/OpenPOTD\_Public}
-            \end{flushleft}
-          \end{minipage}
-      \end{titlepage}
-    }
-     
+      \begin{minipage}{0.55\textwidth}
+        \small{\textit{By \SSauthor, \SSauthorr, \& \SSauthorrr}}\hfil
+      \end{minipage}
+      \hfil
+      \begin{minipage}[t]{0.45\textwidth}
+        \begin{flushleft}
+          \textit{Last updated: \today}\\
+          \href{https://github.com/sj-bs/OpenPOTD_Public}{Github/sj-bs/OpenPOTD\_Public}
+        \end{flushleft}
+      \end{minipage}
+    \newpage
+    \setcounter{page}{1}
+    \microtypesetup{protrusion = false} 
+    \SSbegintoc
+  \microtypesetup{protrusion = true} 
+  \end{titlepage}
+}
 \makeatletter
 \newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
 \makeatother 
@@ -202,19 +203,9 @@
 \setlength{\parindent}{0pt}
 \setcounter{section}{0}
 \setcounter{tocdepth}{3}
-\ihead{}
 
 \pgfplotsset{compat=1.16}
 \usetikzlibrary{arrows}
-
-\renewcommand*{\sectionformat}{\color{Black}\S\thesection\enskip}
-\renewcommand*{\subsectionformat}{\color{Black}\S\thesubsection\enskip}
-\renewcommand*{\subsubsectionformat}{\color{Black}\S\thesubsubsection\enskip}	
-
-\setlength{\parindent}{0pt}
-\setcounter{section}{0}
-\setcounter{tocdepth}{3}
-\ihead{}
 
 \definecolor{pagegray}{RGB}{39, 39, 39}
 \definecolor{qlorange}{RGB}{247,150,70}
